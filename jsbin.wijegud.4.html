@@ -1,0 +1,60 @@
+ <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <link href="https://fonts.googleapis.com/css?family=Ravi+Prakash" rel="stylesheet">
+<style id="jsbin-css">
+* {margin : 0 ; padding : 0; }
+html, body {
+  height : 100%;
+}
+
+#clock {
+  text-align: center;
+  position : absolute;
+  top : 3%;
+  left : 3%;
+  font-family: 'Ravi Prakash', cursive;
+  font-size : 68px;
+  margin-top : -34px;
+}
+</style>
+</head>
+<body>
+<div id ="clock">12:13:14</div>
+<script id="jsbin-javascript">
+function colorClock(){
+var date = new Date();
+var hours = date.getHours();
+if (hours <10 ){
+  hours = '0' + hours;
+}
+var min = date.getMinutes();
+if (min < 10){
+  min = '0' + min;
+}
+var sec = date.getSeconds();
+if (sec < 10 ){
+  sec = '0' + sec;
+}
+var clockFace = hours + ':'+ min + ':' + sec;
+  var hexColor1 = '#' + hours + min  +sec ;
+  var hexColor2 = '#' + (sec*5) + (sec*3)  +(sec*2) ;
+  console.log(clockFace);
+document.getElementById('clock').innerHTML = clockFace;
+document.body.style.background = hexColor1;
+document.getElementById('clock').style.background =hexColor2;
+  
+  setTimeout(function() {
+    colorClock();
+  }, 1000);
+}
+
+colorClock ();
+
+
+</script>
+</body>
+</html>
